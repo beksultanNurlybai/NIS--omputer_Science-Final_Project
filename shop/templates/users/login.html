@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+	<title>Вход</title>
+</head>
+<body>
+	<ul class="messages">
+	{% for message in messages %}
+		<li>{{ message }}</li>
+	{% endfor %}
+	</ul>
+
+	<form method="POST">
+		{% csrf_token %}
+		<h1>Вход</h1>
+		<input type="text" name="username" placeholder="Имя пользователя"><br>
+		<input type="password" name="password" placeholder="Пароль"><br>
+		{{ form.errors }}
+		<input type="submit" value="Войти"><br>
+		<a href="{% url 'register' %}">регистрироваться</a>
+	</form>
+</body>
+</html>

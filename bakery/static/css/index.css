@@ -1,0 +1,368 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 16px;
+	box-sizing: border-box;
+	color: #393939;
+	font-family: "Roboto", sans-serif;
+}
+
+body{
+	font-family: "Roboto", sans-serif;
+}
+
+a{
+	text-decoration: none;
+	font-size: 16px;
+}
+.clean{
+	clear: both;
+}
+a.shop{
+	position: fixed;
+	z-index: 5;
+	bottom: 50px;
+	right: 20px;
+	display: block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #F4CA16;
+	box-shadow: inset 0px 0px 10px rgba(244,202,22, 1);
+}
+a.shop .radius{
+	width: 47px;
+	height: 47px;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	margin: 6.5px;
+	padding: 8px 7px;
+}
+a.shop .radius .line{
+	width: 23px;
+	height: 5px;
+	margin-bottom: 3px;
+	background-color: #fff;
+}
+a.shop .radius .line:last-child{
+	margin-bottom: 0;
+}
+/*------------------------------------head-------------------------------------*/
+
+header{
+	height: 650px;
+}
+
+/*--------------head------------- */
+.head{
+	width: 1200px;
+	height: 80px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 0 50px 0 50px;
+	box-shadow: 0 5px 20px rgba(80,80,80,.2);
+}
+
+.head .logo{
+	float: left;
+	height: 100%;
+}
+
+.head nav{
+	float: left;
+	margin-left: 100px;
+	height: 100%;
+}
+.head nav div{
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+.head nav div:hover ul{
+	display: block;
+}
+.head nav div ul{
+	list-style: none;
+	width: 180px;
+	background: #fff;
+	display: none;
+	position: absolute;
+}
+.head nav div ul a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+	border-bottom: 1px solid #E7E7E7;
+
+	transition-property: color, background-color;
+  	transition-duration: 300ms;
+}
+.head nav div ul a:hover{
+	background-color: #FFD000;
+	color: #fff;
+}
+
+.head .logo a,
+.head nav div > a,
+.head .login a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+
+	transition-property: color;
+  	transition-duration: 300ms;
+}
+.head .logo a{
+	font-size: 1.6em;
+	color: #FFD000;
+	padding: 25px 5px;
+}
+.head nav div > a,
+.head .login a {
+	font-size: 1.2em;
+	padding: 30px 10px;
+}
+.head nav div > a:hover,
+.head .login a:hover {
+	color: #FFD000;
+}
+
+.head .login{
+	position: relative;
+	float: right;
+	height: 100%;
+}
+.head .login div{
+	float: left;
+}
+/*--------------body--------------*/
+.body{
+	width: 1200px;
+	margin: auto;
+}
+
+.body .content{
+	width: 460px;
+	margin-left: 50px;
+}
+.body .content h1{
+	font-size: 3em;
+	line-height: 65px;
+	margin-bottom: 20px;
+}
+.body .content p{
+	color: #747474;
+	line-height: 25px;
+}
+
+.body .content .btn{
+	display: inline-block;
+	margin-top: 30px;
+	border-radius: 5px;
+	background: linear-gradient(to right, #F4CA16, #F08C00);
+}
+.body .content .btn a{
+	display: inline-block;
+	color: #fff;
+	font-size: 1.2em;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+}
+
+/*---------------------------------Section-------------------------------------*/
+
+/*--------------info--------------*/
+section .content{
+	width: 1200px;
+	height: 220px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 100px;
+	padding: 25px 50px 25px 50px;
+	box-shadow: 0 5px 20px rgba(80,80,80,.2);
+}
+
+section .content div{
+	float: left;
+	width: 275px;
+	height: 100%;
+	border-right: 1px solid #CACACA;
+}
+section .content div:last-child{border: 0;}
+section .content div h3{
+	text-align: center;
+	margin-bottom: 10px;
+}
+section .content div p{
+	font-size: 0.8em;
+	color: #808080;
+	text-align: center;
+}
+
+section .content div img{
+	width: 80px;
+	height: 80px;
+	margin-left: 97px;
+	margin-bottom: 10px;
+}
+
+/*-------------photos-------------*/
+section .imgs{
+	width: 1200px;
+	margin: auto;
+	margin-bottom: 100px;
+}
+
+section .imgs .first,
+section .imgs .second{
+	float: left;
+}
+section .imgs .first{
+	width: 800px;
+}
+section .imgs .first img{
+	width: 377px;
+	height: 260px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+section .imgs > img{
+	float: right;
+	width: 395px;
+	height: 544px;
+}
+
+/*--------------popular--------------*/
+section .popular{
+	position: relative;
+	overflow: hidden;
+	width: 1200px;
+	height: 355px;
+	padding: 16px;
+	margin: auto;
+	margin-bottom: 200px;
+	box-shadow: 0 5px 20px rgba(80,80,80,.2);
+}
+section .popular .container{
+	position: relative;
+	left: 0px;
+	width: 2352px;
+}
+
+/* icons */
+section .popular .previous,
+section .popular .next{
+	position: absolute;
+	z-index: 5;
+	width: 30px;
+	height: 60px;
+	top: 125px;
+
+	transition-property: background-color;
+  	transition-duration: 300ms;
+}
+section .popular .previous{
+	background: rgba(80,80,80,.3) url(icons/previous.png) 0 16px no-repeat;
+	background-size: 100%;
+	left: 0;
+}
+section .popular .previous:hover,
+section .popular .next:hover{
+	background-color: rgba(80,80,80,.6);
+}
+section .popular .next{
+	background: rgba(80,80,80,.2) url(icons/next.png) 0 16px no-repeat;
+	background-size: 100%;
+	right: 0;
+}
+
+section .popular h2{
+	font-size: 1.6em;
+	margin: 0 0 15px 15px;
+}
+
+/* goods */
+section .popular .good{
+	width: 280px;
+	height: 280px;
+	margin-right: 16px;
+	padding: 10px;
+	background-color: #F3F3F3;
+	border-radius: 5px;
+	float: left;
+
+	transition-property: background-color;
+  	transition-duration: 500ms;
+}
+section .popular .good:last-child{
+	margin-right: 0px;
+}
+section .popular .good:hover{
+	background-color: #E4E4E4;
+}
+section .popular .good img{
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+section .popular .good h3{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 1.2em;
+	text-align: center;
+}
+section .popular .good p{
+}
+
+/* -------------contact------------- */
+section .contact{
+	height: 600px;
+}
+section .contact .form,
+section .contact .map{
+	float: left;
+	width: 48%;
+}
+section .contact .map{
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+/*----------------------------------footer-------------------------------------*/
+footer{
+	background-color: #2C2C2C;
+	margin-top: 100px;
+}
+
+footer .content{
+	width: 1200px;
+	margin: auto;
+}
+
+footer .content div{
+	float: left;
+	width: 400px;
+	padding: 30px;
+}
+footer .content div h2{
+	text-align: center;
+	font-size: 1.4em;
+	color: #fff;
+}
+footer .content div a{
+	color: #A6A6A6;
+	margin-left: 20px;
+	line-height: 30px;
+}
+footer .content div a:hover{
+	text-decoration: underline;
+}
+footer .content div p{
+	color: #A6A6A6;
+	line-height: 25px;
+}

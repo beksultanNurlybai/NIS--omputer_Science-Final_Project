@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block static %}{% endblock %}
+	<script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	{% block icon %}{% endblock %}
+
+	<header>
+		<div class="head">
+			<div class="logo"><a href="{% url 'home' %}">LOGO</a></div>
+			<nav>
+				<div class="home"><a href="{% url 'home' %}">главная</a></div>
+				<div class="shop">
+					<a href="{% url 'shop' %}">товары</a>
+					<ul>
+						{% for type in type_of_goods %}
+							<li><a href="{% url 'special' type.pk %}">{{type.title}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="news"><a href="#">новости</a></div>
+				<div class="aboutUs"><a href="#">о нас</a></div>
+				<div class="contact"><a href="#">контакты</a></div>
+			</nav>
+			<div class="login">
+				{% if request.user.is_authenticated %}
+					<div><a href="{% url 'account' %}">профиль</a></div>
+					<div><a href="{% url 'logout' %}">выход</a></div>
+				{% else %}
+					<div><a href="{% url 'register' %}">регистрация</a></div>
+					<div><a href="{% url 'login' %}">вход</a></div>
+				{% endif %}
+			</div>
+		</div>
+
+		{% block header %}{% endblock %}
+
+	</header>
+
+	{% block content %}{% endblock %}
+
+	{% block footer %}
+	<div class="clean"></div>
+	<footer>
+		<div class="content">
+			<div class="menu">
+				<h2>Меню</h2><br>
+				<a href="#">Главная</a><br>
+				<a href="#">Товары</a><br>
+				<a href="#">Новости</a><br>
+				<a href="#">О нас</a><br>
+				<a href="#">Контакты</a>
+			</div>
+			<div class="about">
+				<h2>О нас</h2><br>
+				<p>Lorem, ipsum dolor sit quod dolorem debitis ab eveniet fugiat. Eum magni quod culpa, quaerat, eaque ut ea nisi repudiandae ab.</p>
+			</div>
+			<div class="contact">
+				<h2>Контакты</h2>
+			</div>
+		</div>
+		<div class="clean"></div>
+	</footer>
+	{% endblock %}
+</body>
+</html>

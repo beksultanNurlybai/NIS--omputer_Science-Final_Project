@@ -1,0 +1,335 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 16px;
+	box-sizing: border-box;
+	color: #393939;
+	font-family: "Roboto", sans-serif;
+}
+
+body{
+	font-family: "Roboto", sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+.clean{
+	clear: both;
+}
+/*------------------------------------head-------------------------------------*/
+
+header{
+	height: 200px;
+}
+
+/*--------------head------------- */
+.head{
+	width: 1200px;
+	height: 80px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 0 50px 0 50px;
+	box-shadow: 0 5px 20px rgba(80,80,80,.2);
+	position: relative;
+	z-index: 3;
+}
+
+.head .logo{
+	float: left;
+	height: 100%;
+}
+
+.head nav{
+	float: left;
+	margin-left: 100px;
+	height: 100%;
+}
+.head nav div{
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+.head nav div:hover ul{
+	display: block;
+}
+.head nav div ul{
+	list-style: none;
+	width: 180px;
+	background: #fff;
+	display: none;
+	position: absolute;
+}
+.head nav div ul a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+	border-bottom: 1px solid #E7E7E7;
+
+	transition-property: color, background-color;
+  	transition-duration: 300ms;
+}
+.head nav div ul a:hover{
+	background-color: #FFD000;
+	color: #fff;
+}
+
+.head .logo a,
+.head nav div > a,
+.head .login a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+
+	transition-property: color;
+  	transition-duration: 300ms;
+}
+.head .logo a{
+	font-size: 1.6em;
+	color: #FFD000;
+	padding: 25px 5px;
+}
+.head nav div > a,
+.head .login a {
+	font-size: 1.2em;
+	padding: 30px 10px;
+}
+.head nav div > a:hover,
+.head .login a:hover {
+	color: #FFD000;
+}
+
+.head .login{
+	position: relative;
+	float: right;
+	height: 100%;
+}
+.head .login div{
+	float: left;
+}
+
+/*------------------------------------section-------------------------------------*/
+section{
+	width: 1200px;
+	margin: auto;
+	margin-top: 100px;
+}
+section .img{
+	float: left;
+	width: 50%;
+}
+section img{
+	width: 80%;
+	height: auto;
+	margin-left: 10%;
+}
+
+section .content{
+	float: left;
+	width: 50%;
+}
+section .content h1{
+	font-size: 2.4em;
+	font-weight: 100;
+	margin-bottom: 20px;
+}
+section .content h1 + p{
+	color: #858585;
+	font-size: 1.6em;
+	margin-bottom: 30px;
+}
+section .content p + p{
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+section .content .sum{
+	width: 420px;
+	border-radius: 5px;
+	padding: 6px 20px;
+	background-color: #E7E7E7;
+	font-size: 1.2em;
+	float: left;
+}
+section .content .sum span{
+	font-size: 1em;
+}
+section .content .quantity{
+	float: right;
+	width: 160px;
+	height: 35px;
+	border-radius: 5px;
+	background-color: #E7E7E7;
+}
+section .content .quantity .minus{
+	float: left;
+	width: 40px;
+	height: 35px;
+	border-radius: 5px 0 0 5px;
+	border-right: 2px solid #CDCDCD;
+	font-size: 2em;
+	color: #858585;
+	text-align: center;
+}
+section .content .quantity .minus:hover,
+section .content .quantity .plus:hover{
+	background-color: #B5B5B5;
+	cursor: pointer;
+}
+section .content .quantity span{
+	display: block;
+	float: left;
+	width: 80px;
+	height: 35px;
+}
+section .content .quantity span p{
+	position: relative;
+	font-size: 1.4em;
+	text-align: center;
+	top: 6px;
+}
+section .content .quantity .plus{
+	float: left;
+	width: 40px;
+	height: 35px;
+	border-left: 2px solid #CDCDCD;
+	border-radius: 0 5px 5px 0;
+}
+section .content .quantity .plus p {
+	font-size: 2em;
+	color: #858585;
+	text-align: center;
+	position: relative;
+}
+
+section .content .toCart{
+	float: left;
+	width: 50%;
+	margin: 20px 1% 10px 0;
+	border: 2px solid #F4CA16;
+	border-radius: 5px;
+}
+section .content .toCart:hover{cursor: pointer;}
+section .content .toCart a,
+section .content .buy a{
+	display: block;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	font-size: 1.4em;
+	color: #F4CA16;
+	text-align: center;
+}
+section .content .buy{
+	float: right;
+	width: 48%;
+	margin: 20px 1% 10px 0;
+	background-color: #FFD035;
+	border: 2px solid #FFD035;
+	border-radius: 5px;
+
+	transition: background-color 200ms;
+}
+section .content .buy a{
+	color: #fff;
+}
+section .content .buy:hover{
+	background-color: #F4B116;
+}
+/*----------------------------------comments-------------------------------------*/
+.comments{
+	width: 1200px;
+	margin: auto;
+	margin-top: 100px;
+	padding: 20px;
+	border: 1px solid #CDCDCD;
+}
+.comments form textarea{
+	width: 500px;
+	height: 100px;
+	padding: 5px;
+	resize: none;
+}
+.comments form input[type='submit']{
+	width: 100px;
+	height: 30px;
+	background-color: #318CE7;
+	border: 0;
+	margin: 10px 0 20px 10px;
+	border-radius: 5px;
+	font-size: 1.2em;
+	color: #fff;
+}
+.comments form input[type='submit']:hover{cursor: pointer;}
+.comments .title h1{
+	float: left;
+	font-size: 2em;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+.comments .title p,
+.comments .title select{
+	float: right;
+	position: relative;
+	top: 17px;
+}
+.comments .title select{
+	margin-left: 10px;
+	top: 15px;
+}
+.comments .comment{
+	width: 100%;
+	padding: 15px 0 15px 0;
+	border-top: 1px solid #CDCDCD;
+}
+.comments .comment h2{
+	font-size: 1.4em;
+	font-weight: 300;
+	color: #505050;
+	margin-bottom: 10px;
+}
+.comments .comment h2 + p{
+	font-size: 1.2em;
+	color: #505050;
+	margin-bottom: 5px;
+}
+.comments .comment p + p{
+	color: #777777;
+}
+/*----------------------------------footer-------------------------------------*/
+footer{
+	background-color: #2C2C2C;
+	margin-top: 100px;
+}
+
+footer .content{
+	width: 1200px;
+	margin: auto;
+	margin-bottom: 100px;
+}
+
+footer .content div{
+	float: left;
+	width: 400px;
+	padding: 30px;
+}
+footer .content div h2{
+	text-align: center;
+	font-size: 1.4em;
+	color: #fff;
+}
+footer .content div a{
+	color: #A6A6A6;
+	margin-left: 20px;
+	line-height: 30px;
+}
+footer .content div a:hover{
+	text-decoration: underline;
+}
+footer .content div p{
+	color: #A6A6A6;
+	line-height: 25px;
+}
+

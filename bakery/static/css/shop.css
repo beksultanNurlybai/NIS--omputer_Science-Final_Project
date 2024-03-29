@@ -1,0 +1,212 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 16px;
+	box-sizing: border-box;
+	color: #393939;
+	font-family: "Roboto", sans-serif;
+}
+
+body{
+	font-family: "Roboto", sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+.clean{
+	clear: both;
+}
+/*------------------------------------head-------------------------------------*/
+header{
+	height: 150px;
+}
+
+/*--------------head------------- */
+.head{
+	position: relative;
+	z-index: 3;
+	width: 1200px;
+	height: 80px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 0 50px 0 50px;
+	box-shadow: 0 5px 20px rgba(80,80,80,.2);
+}
+
+.head .logo{
+	float: left;
+	height: 100%;
+}
+
+.head nav{
+	float: left;
+	margin-left: 100px;
+	height: 100%;
+}
+.head nav div{
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+.head nav div:hover ul{
+	display: block;
+}
+.head nav div ul{
+	list-style: none;
+	width: 180px;
+	background: #fff;
+	display: none;
+	position: absolute;
+}
+.head nav div ul a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+	border-bottom: 1px solid #E7E7E7;
+
+	transition-property: color, background-color;
+  	transition-duration: 300ms;
+}
+.head nav div ul a:hover{
+	background-color: #FFD000;
+	color: #fff;
+}
+
+.head .logo a,
+.head nav div > a,
+.head .login a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+
+	transition-property: color;
+  	transition-duration: 300ms;
+}
+.head .logo a{
+	font-size: 1.6em;
+	color: #FFD000;
+	padding: 25px 5px;
+}
+.head nav div > a,
+.head .login a{
+	font-size: 1.2em;
+	padding: 30px 10px;
+}
+.head nav div > a:hover,
+.head .login a:hover {
+	color: #FFD000;
+}
+
+.head .login{
+	position: relative;
+	float: right;
+	height: 100%;
+}
+.head .login div{
+	float: left;
+}
+
+/*---------------------------------Section-------------------------------------*/
+
+section .options{
+	width: 1200px;
+	margin: auto;
+}
+section .options h1{
+	font-size: 2em;
+	float: left;
+}
+section .options .filterCollection,
+section .options .sortCollection{
+	float: right;
+	margin-left: 20px;
+	position: relative;
+	top: 10px;
+}
+section .options select{
+	border: 0;
+	padding: 5px;
+	float: left;
+}
+section .options h3{
+	float: left;
+	position: relative;
+	top: 5px;
+	margin-right: 10px;
+}
+
+/* goods */
+section .goods{
+	width: 1200px;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 200px;
+}
+section .goods .good{
+	width: 285px;
+	height: 280px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: #F3F3F3;
+	border-radius: 5px;
+	float: left;
+
+	transition-property: background-color;
+  	transition-duration: 500ms;
+}
+section .goods .good:hover{
+	background-color: #E4E4E4;
+}
+section .goods .good:nth-child(4n){
+	margin-right: 0;
+}
+section .goods .good img{
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+section .goods .good h3{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+/*----------------------------------footer-------------------------------------*/
+footer{
+	background-color: #2C2C2C;
+	margin-top: 100px;
+}
+
+footer .content{
+	width: 1200px;
+	margin: auto;
+}
+
+footer .content div{
+	float: left;
+	width: 400px;
+	padding: 30px;
+}
+footer .content div h2{
+	text-align: center;
+	font-size: 1.4em;
+	color: #fff;
+}
+footer .content div a{
+	color: #A6A6A6;
+	margin-left: 20px;
+	line-height: 30px;
+}
+footer .content div a:hover{
+	text-decoration: underline;
+}
+footer .content div p{
+	color: #A6A6A6;
+	line-height: 25px;
+}

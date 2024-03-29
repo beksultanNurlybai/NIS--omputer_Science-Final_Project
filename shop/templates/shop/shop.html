@@ -1,0 +1,34 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block static %}<link rel="stylesheet" href="{% static 'css/shop.css' %}">{% endblock %}
+{% block title %}Shop page{% endblock %}
+
+{% block content %}
+<section>
+	<div class="options">
+		<h1>Наши товары</h1>
+		<div class="sortCollection">
+			<form method="GET">
+				{% csrf_token %}
+				{{ form.sort }}
+				{{ form.filt }}
+			</form>
+		</div>
+		<div class="filterCollection">
+		</div>
+	</div>
+	<div class="clean"></div>
+	<div class="goods">
+		{% for good in goods %}
+			<div class="good">
+				<a href="{% url 'detail_of_good' good.pk %}">
+				<img src="{{good.photo.url}}" alt="">
+				<h3>{{good.title}}</h3>
+				</a>
+				<p>{{good.price}} тг</p>
+			</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}

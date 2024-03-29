@@ -1,0 +1,101 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block static %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+{% block title %}Main page{% endblock %}
+
+{% block icon %}
+<a href="{% url 'shop' %}" class="shop">
+	<div class="radius">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+</a>
+{% endblock %}
+
+{% block header %}
+	{% for message in messages %}
+		{{ message }}
+	{% endfor %}
+	<div class="clean"></div>
+	<div class="body">
+		<div class="content">
+			<h1>Добро пожаловать на наш сайт!</h1>
+		   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda facilis, tempora modi. Error totam temporibus, sapiente ipsa dolor quidem iusto.</p>
+		   <div class="btn"><a href="{% url 'shop' %}">Товары</a></div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block content %}
+<section>
+	<div class="content">
+		<div class="freeDelivery">
+			<img src="{% static 'css/icons/delivery.png' %}" alt="Бесплатная доставка">
+			<h3>Бесплатная доставка</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</div>
+		<div class="support">
+			<img src="{% static 'css/icons/support.png' %}" alt="Поддержка">
+			<h3>Поддержка 24/7</h3>
+			<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit.</p>
+		</div>
+		<div class="bestIngredients">
+			<img src="{% static 'css/icons/ingredients.png' %}" alt="Ингредиенты">
+			<h3>Лучшие ингредиенты</h3>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</div>
+		<div class="sales">
+			<img src="{% static 'css/icons/sales.png' %}" alt="Скидки">
+			<h3>Скидки</h3>
+			<p>Lorem ipsum dolor, sit, amet consectetur adipisicing.</p>
+		</div>
+	</div>
+	<div class="imgs">
+		<div class="first">
+			<img src="{% static 'css/photos/1.jpg' %}" alt="фото">
+			<img src="{% static 'css/photos/2.jpg' %}" alt="фото">
+			<img src="{% static 'css/photos/4.jpg' %}" alt="фото">
+			<img src="{% static 'css/photos/5.jpg' %}" alt="фото">
+		</div>
+		<img src="{% static 'css/photos/3.jpg' %}" alt="фото">
+		<div class="clean"></div>
+	</div>
+	<div class="popular">
+		<h2>Популярные</h2>
+		<div class="previous" onclick="scrollPre()"></div>
+		<div class="next" onclick="scrollNext()"></div>
+		<div class="container">
+			{% for good in goods %}
+				<div class="good">
+					<a href="{% url 'detail_of_good' good.pk %}">
+					<img src="{{good.photo.url}}" alt="">
+					<h3>{{good.title}}</h3>
+					</a>
+					<p>{{good.price}} тг</p>
+				</div>
+			{% endfor %}
+		</div>
+		<script>
+			function scrollNext(){
+				let contStyle = getComputedStyle(document.querySelector('section .popular .container'));
+				let left = parseInt(contStyle.left);
+				if (left > -1184) {
+					$('section .popular .container').animate({left: left - 296 + 'px'}, 300);
+				}
+			}
+			function scrollPre(){
+				let contStyle = getComputedStyle(document.querySelector('section .popular .container'));
+				let left = parseInt(contStyle.left);
+				if (left < 0) {
+					$('section .popular .container').animate({left: left + 296 + 'px'}, 300);
+				}
+			}
+		</script>
+	</div>
+	<div class="contact">
+		<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1190.6065722249682!2d65.5174338978154!3d44.7857886044707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f7ffa92e60fba7%3A0x5fd187f804a444d6!2z0J3QsNC30LDRgNCx0LDQtdCyINCY0L3RgtC10LvQu9C10LrRgtGD0LDQu9GM0L3QsNGPINGI0LrQvtC70LA!5e0!3m2!1sru!2skz!4v1629890861594!5m2!1sru!2skz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+	</div>
+</section>
+{% endblock %}

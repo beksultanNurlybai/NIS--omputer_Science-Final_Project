@@ -1,0 +1,101 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block static %}<link rel="stylesheet" href="{% static 'css/details.css' %}">{% endblock %}
+{% block title %}Detail page{% endblock %}
+
+{% block content %}
+	<section>
+		<div class="img"><img src="{{good.photo.url}}" alt=""></div>
+		<p style="color:#fff;" id="pk">{{good.pk}}</p>
+		<p style="color:#fff;" id="url">{% url 'detail_of_good' good.pk %}</p>
+		<p style="color:#fff;" id="src">{{good.photo.url}}</p>
+		<div class="content">
+			<h1 id="title">{{good.title}}</h1>
+			<p id="price">{{good.price}} тг</p>
+			<p id="ingredients">{{good.ingredients}}</p>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate error placeat dolore, inventore quas nulla, nostrum dolorem! Consequatur, laboriosam, ut eius ipsum suscipit asperiores quasi tenetur atque quos harum laudantium.</p>
+			<div class="number">
+				<div class="sum">итог: <span id="totalprice">{{good.price}}</span>тг</div>
+				<div class="quantity">
+					<div class="minus" onclick="showMinus()">-</div>
+					<span><p id="quantity">1</p></span>
+					<div class="plus" onclick="showPlus()"><p>+</p></div>
+				</div>
+			</div>
+			<script>
+				function showPlus(){
+					let num = +document.getElementById('quantity').innerHTML
+					  , price = +document.getElementById('totalprice').innerHTML
+					  , priceOfOne;
+					
+					if (num == 99){
+						return;
+					} else{
+						priceOfOne = price / num;
+						document.getElementById('quantity').innerHTML++;
+						document.getElementById('totalprice').innerHTML = price + priceOfOne;
+					}
+				}
+
+				function showMinus(){
+					let num = document.getElementById('quantity').innerHTML
+					  , price = +document.getElementById('totalprice').innerHTML
+					  , priceOfOne;
+					
+					if (num == '1'){
+						return;
+					} else{
+						priceOfOne = price / num;
+						document.getElementById('quantity').innerHTML--;
+						document.getElementById('totalprice').innerHTML = price - priceOfOne;
+					}
+				}
+			</script>
+			<div class="clean"></div>
+				{% if request.user.is_authenticated %}
+				<div class="toCart" onclick="getProduct()"><a>Добавить в корзину</a></div>
+				{% endif %}
+				<script>
+					function getProduct(){
+						let product = {
+							title: document.getElementById('title').innerHTML,
+							price: document.getElementById('price').innerHTML,
+							ingredients: document.getElementById('ingredients').innerHTML,
+							src: document.getElementById('src').innerHTML,
+							url: document.getElementById('url').innerHTML
+						}
+						localStorage.setItem(document.getElementById('pk').innerHTML, JSON.stringify(product))
+						alert('Товар был добавлен в корзину.')
+					}
+				</script>
+			<div class="buy"><a href="">Покупать</a></div>
+		</div>
+	</section>
+	<div class="clean"></div>
+	<div class="comments">
+		<div class="title">
+			<h1>Отзывы покупателей</h1>
+			<form method="GET">
+				{% csrf_token %}
+				{{ form2.sort }}
+			</form>
+			<p>Cортировать</p>
+		</div>
+		<div class="clean"></div>
+		{% if request.user.is_authenticated %}
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.body }}<br>
+				<input type="submit">
+			</form>
+		{% endif %}
+		{% for comment in comments %}
+			<div class="comment">
+				<h2>{{comment.user.username}}</h2>
+				<p>{{comment.created_at}}</p>
+				<p>{{comment.body}}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

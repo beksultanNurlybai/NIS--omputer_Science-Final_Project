@@ -1,0 +1,69 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block static %}<link rel="stylesheet" href="{% static 'css/account.css' %}">{% endblock %}
+{% block title %}account{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<h1>Корзина пользователя {{request.user}}</h1>
+	<div class="info">
+		<div>общае количество товаров: <span id="countOfProducts">0</span></div>
+		<div>общае стоимость товаров: <span id="totalPriceOfProducts">0</span>тг</div>
+		<div class="remove" onclick="remove()">очистить корзину</div>
+	</div>
+</div>
+<script>
+	totalprice = 0;
+
+	for(i=0; i<localStorage.length;i++){
+		let key = localStorage.key(i);
+		product = JSON.parse(localStorage.getItem(key));
+
+		let good = document.createElement('div');
+		good.className = 'good';
+		let a = document.createElement('a');
+		a.href = product.url;
+		let img = document.createElement('img');
+		img.src = product.src;
+		let h3 = document.createElement('h3');
+		h3.innerHTML = product.title;
+		a.append(img);
+		a.append(h3);
+		let p = document.createElement('p');
+		p.innerHTML = product.price;
+		let div = document.createElement('div');
+		div.className = 'remove';
+		div.innerHTML = 'убрать';
+		div.setAttribute('key', key);
+		good.append(a);
+		good.append(p);
+		good.append(div);
+		document.querySelector('.info').after(good);
+
+		div.addEventListener('click', () => {
+			prod = JSON.parse(localStorage.getItem(div.getAttribute('key')));
+			totalprice -= parseInt(prod.price);
+			document.getElementById('totalPriceOfProducts').innerHTML = totalprice;
+			document.getElementById('countOfProducts').innerHTML = localStorage.length - 1;
+			localStorage.removeItem(div.getAttribute('key'));
+			good.remove();
+		});
+
+		totalprice += parseInt(product.price)
+	}
+
+	document.getElementById('totalPriceOfProducts').innerHTML = totalprice;
+	document.getElementById('countOfProducts').innerHTML = localStorage.length;
+
+	function remove(){
+		for(i=0; i<localStorage.length; i++){
+			document.querySelector('.container .good').remove();
+		}
+		document.getElementById('totalPriceOfProducts').innerHTML = 0;
+		document.getElementById('countOfProducts').innerHTML = 0;
+		localStorage.clear();
+	}
+</script>
+{% endblock %}
